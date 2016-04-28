@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2016 at 04:06 AM
+-- Generation Time: Apr 28, 2016 at 04:09 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -25,12 +25,24 @@ USE `csmain`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `downloads`
+--
+
+CREATE TABLE `downloads` (
+  `linkID` int(4) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `url` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `job`
 --
 
 CREATE TABLE `job` (
   `jobID` int(4) NOT NULL,
-  `dateCreated` date DEFAULT NULL,
+  `dateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `submitBy` int(4) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL,
@@ -45,7 +57,11 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`jobID`, `dateCreated`, `submitBy`, `title`, `description`, `progress`, `memberName`, `status`, `urgency`) VALUES
-(9, '2015-12-16', 14, 'Create 2016 Budget', 'We need a budget due by the end of January                   \r\n                ', 'Only a few ideas                  \r\n                ', 'Joshua', 'In Progress', 'Urgent');
+(9, '2015-12-16 05:00:00', 14, 'Create 2016 Budget', 'We need a budget due by the end of January                   \r\n                ', 'Only a few ideas                  \r\n                ', 'Joshua', 'In Progress', 'Urgent'),
+(10, '2016-04-26 06:10:01', 14, 'test', 'test', 'test', 'All', 'New', 'Normal'),
+(11, '2016-04-26 06:10:40', 14, 'Finish Website', 'Finish club website', 'Just Begun', 'All', 'New', 'Urgent'),
+(12, '2016-04-27 01:50:14', 14, 'test2', 'nothing', 'nothing', 'All', 'New', 'Normal'),
+(13, '2016-04-28 13:55:04', 14, 'new task', 'do stuff', 'nothing', 'Jake', 'In Progress', 'Urgent');
 
 -- --------------------------------------------------------
 
@@ -74,15 +90,24 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`memberID`, `fName`, `lName`, `email`, `phone`, `username`, `password`, `eboard`, `role`, `oneCard`, `joinDate`, `pic`) VALUES
 (14, 'Jake', 'Lee', 'Jake@jakelee.info', '', 'coolstuff14', 'password', '1', 'Treassure', '', '2016-03-08 07:13:32', 'img/profiles/profile-14.jpg'),
-(15, 'John', 'Smith', 'john@gmail.com', '978-827-9999', 'john1', 'password', '0', '', '', '2016-03-08 07:13:32', 'img/default-profile.png'),
-(16, 'Jim', 'Smith', 'jim@gmail.com', '978-827-5555', 'jim1', 'password', '0', '', '', '2016-03-08 07:13:32', 'img/default-profile.png'),
-(17, 'Kevin', 'Smith', 'kevin@kevin.com', '9788274455', 'kev1', 'password', '1', '', '', '2016-03-08 07:13:32', 'img/default-profile.png'),
-(19, 'jake', 'lee', 'jake@jake.com', '', 'coolstuff1414', 'password', '0', '', '', '2016-03-08 07:13:32', 'img/default-profile.png'),
-(20, 'John', 'Doe', 'john.doe@gmail.com', '9788270132', 'cool', 'muhpassword', '0', '', NULL, '2016-03-08 07:13:32', 'img/default-profile.png'),
-(21, 'anthony', 'perez', 'antmanperez@gmail.com', '', 'antman', 'password', '0', '', NULL, '2016-03-08 07:13:32', 'img/default-profile.png'),
-(22, 'Prez', 'Bob', 'prezbob@coolguy.com', '', 'prezbob', 'password', '0', '', NULL, '2016-03-08 09:45:33', 'img/default-profile.png'),
-(23, 'Bob', 'Thebuilder', 'bobbuilder@gmail.com', '', 'bobbuilder', 'password', '0', '', NULL, '2016-03-08 09:47:16', 'img/default-profile.png'),
-(24, 'Eric', 'smith', 'smith@gmail.com', '', 'eric1234', 'password', '0', '', NULL, '2016-03-08 15:21:44', 'img/default-profile.png');
+(42, 'Test', 'Person', 'email@email.com', '', 'TestPerson5', 'testpassword', '0', '', NULL, '2016-04-19 04:51:40', 'img/default-profile.png'),
+(43, 'Test', 'Person', 'email@email.com', '', 'TestPerson6', 'password', '0', '', NULL, '2016-04-19 04:51:40', 'img/default-profile.png'),
+(44, 'Test', 'Person', 'email@email.com', '', 'TestPerson7', 'password', '0', '', NULL, '2016-04-19 04:51:40', 'img/default-profile.png'),
+(45, 'Test', 'Person', 'email@email.com', '', 'TestPerson8', 'password', '0', '', NULL, '2016-04-19 04:51:40', 'img/default-profile.png'),
+(46, 'Test', 'Person', 'email@email.com', '', 'TestPerson9', 'password', '0', '', NULL, '2016-04-19 04:51:40', 'img/default-profile.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsfeed`
+--
+
+CREATE TABLE `newsfeed` (
+  `postID` int(4) NOT NULL,
+  `postAuthor` varchar(30) NOT NULL,
+  `postBody` longtext NOT NULL,
+  `postTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,8 +127,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`setting`, `value1`, `value2`, `value3`) VALUES
-('current-theme', 'skin-blue', '', NULL),
-('default-theme', 'skin-purple', '../img/bg.jpg', NULL);
+('current-theme', '', '', NULL),
+('default-theme', 'skin-purple', '../img/dark_embroidery.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,6 +147,12 @@ CREATE TABLE `signin` (
 --
 
 --
+-- Indexes for table `downloads`
+--
+ALTER TABLE `downloads`
+  ADD PRIMARY KEY (`linkID`);
+
+--
 -- Indexes for table `job`
 --
 ALTER TABLE `job`
@@ -135,6 +166,12 @@ ALTER TABLE `member`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `newsfeed`
+--
+ALTER TABLE `newsfeed`
+  ADD PRIMARY KEY (`postID`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -146,15 +183,25 @@ ALTER TABLE `settings`
 --
 
 --
+-- AUTO_INCREMENT for table `downloads`
+--
+ALTER TABLE `downloads`
+  MODIFY `linkID` int(4) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `jobID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `jobID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `memberID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `memberID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT for table `newsfeed`
+--
+ALTER TABLE `newsfeed`
+  MODIFY `postID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `signin`
 --
