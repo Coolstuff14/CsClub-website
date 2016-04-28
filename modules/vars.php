@@ -11,6 +11,8 @@ skin
 -black
 */
 $pageSkin = "skin-purple";
+//Background image
+$bgUrl = "../img/dark_embroidery.png";
 //Defualt Page content
 $pageCont = "modules/dashboard.php";
 //Defualt selected Button

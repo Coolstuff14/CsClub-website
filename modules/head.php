@@ -17,11 +17,12 @@
   <!-- Theme Skin -->
   <link rel="stylesheet" href="css/skins/_all-skins.min.css">
 
+  <link href="summernote/summernote.css" rel="stylesheet">
 
  <?php
  //Main database functions
  include 'db/dbcore.php';
- 
+
  //Variables used in page
  include 'modules/vars.php';
 

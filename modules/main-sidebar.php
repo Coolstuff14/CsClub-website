@@ -26,10 +26,10 @@
           <a href=""><i class="fa fa-newspaper-o"></i> <span>News Feed</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
             <li><a href="?newpost">New Post</a></li>
-            <li><a href="#">Remove Post</a></li>
+            <li><a href="?remove-post">Remove Post</a></li>
           </ul>
         </li>
-      </ul><
+      </ul>
 
     <!-- /.sidebar-menu -->
   </section>

@@ -53,4 +53,6 @@
   </div>
   </div><!--row-->
 
+  <?php include 'modules/newsfeed.php' ?>
+
   </section><!-- /.content -->

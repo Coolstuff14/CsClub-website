@@ -12,9 +12,6 @@
         $rank=$_SESSION['role'];
     }
 
-  // Connect to the database
-  $connection = db_connect();
-
   //Check number of registered users
   $rows = db_select("SELECT COUNT(*) AS numUsers FROM member");
   if(($rows !== false)&&(count($rows) > 0)) {

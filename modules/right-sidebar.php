@@ -44,30 +44,42 @@
     <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
     <!-- Settings tab content -->
     <div class="tab-pane" id="control-sidebar-settings-tab">
-      <form method="post">
         <h3 class="control-sidebar-heading">General Settings</h3>
+        <form role="form" method="POST" action="modules/change-theme.php">
         <div class="form-group">
           <label class="control-sidebar-subheading">
             Theme
           </label>
           <p>
-            Change the Theme
+            Change the Skin
           </p>
           <p>
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Defualt
-                <span class="caret"></span>
-              </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="">Default</a></li>
-                    <li><a href="">Light</a></li>
-                    <li><a href="">Dark</a></li>
-                    <li><a href="">Blue</a></li>
-                  </ul>
-            </div>
+            <select class="form-control" name="skins">
+              <option value="">Default</option>
+              <option value="skin-red">red</option>
+              <option value="skin-blue">blue</option>
+              <option value="skin-green">green</option>
+              <option value="skin-purple">purple</option>
+              <option value="skin-yellow">yellow</option>
+              <option value="skin-black">black</option>
+              <option value="skin-red-light">light red</option>
+              <option value="skin-blue-light">light blue</option>
+              <option value="skin-green-light">light green</option>
+              <option value="skin-purple-light">light purple</option>
+              <option value="skin-yellow-light">light yellow</option>
+              <option value="skin-black-light">light black</option>
+            </select>
+            <p>
+              <button type="submit" class="btn btn-primary" name="themeChange">Apply</button>
           </p>
         </div><!-- /.form-group -->
+      </form>
+      <form action="modules/upload.php" method="post" enctype="multipart/form-data">
+        <label class="control-sidebar-subheading">
+            Select image to upload:
+        </label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <button type="submit" value="UploadImage" class="btn btn-primary" name="upfile">Submit</button>
       </form>
     </div><!-- /.tab-pane -->
   </div>

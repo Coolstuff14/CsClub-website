@@ -1,3 +1,25 @@
+<?php
+if(!isset($_POST['postbody'])){
+}
+else{
+    $body = db_quote($_POST['postbody']);
+    $postCode = htmlentities($body);
+    // Insert the values into the database
+    $postCode = preg_replace('/(^[\"\']|[\"\']$)/', '', $postCode);
+    $result = db_query("INSERT INTO NEWSFEED (postAuthor, postBody) VALUES ('$username', '$postCode')");
+    if($result === false) {
+      $error = db_error();
+      echo "$error";
+      // Handle failure - log the error, notify administrator, etc.
+    } else {
+    // We successfully inserted a row into the database
+    }
+}
+ ?>
+ <form name="postbody" method="post" action="">
+   <input type='hidden' name='postbody' id='postbody'>
+ </form>
+
 <section class="content">
   <div class="row">
     <div class="col-lg-12">
@@ -8,11 +30,8 @@
 
         </div><!-- /.box-header -->
         <div class="box-body pad">
-          <form>
-            <textarea id="editor1" name="editor1" rows="10" cols="80">
-
-            </textarea>
-          </form>
+          <div id="summernote"><p>Stuff goes here!</p></div>
+          <button class="btn btn-default pull-right" onclick="savePost();"><i class="fa fa-plus"></i>Post</button>
         </div>
       </div><!-- /.box -->
     </div>

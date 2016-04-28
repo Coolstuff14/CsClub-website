@@ -1,5 +1,4 @@
 <?php
-
 //Connect to database
 function db_connect() {
 
@@ -8,27 +7,25 @@ function db_connect() {
 
     // Try and connect to the database, if a connection has not been established yet
     if(!isset($connection)) {
-         // Load configuration as an array. Use the actual location of your configuration file
-        $config = parse_ini_file('config.ini');
-        $connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
-
+        // Load configuration as an array. Use the actual location of your configuration file
+       $config = parse_ini_file('config.ini');
+       $connection = @mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
     }
 
-    // If connection was not successful, handle the error
-    if($connection === false) {
-        // Handle error - notify administrator, log to a file, show an error screen, etc.
-        return mysqli_connect_error();
+    if (!$connection){
+     return mysqli_connect_error();
     }
-    return $connection;
+
+      return $connection;
 }
 
-//Query the database mostly INSERT
+//Query the database mostly INSERT and UPDATE
 function db_query($query) {
     // Connect to the database
     $connection = db_connect();
 
     // Query the database
-    $result = mysqli_query($connection,$query);
+    $result = @mysqli_query($connection,$query);
 
     return $result;
 }
@@ -44,7 +41,7 @@ function db_select($query) {
     }
 
     // If query was successful, retrieve all the rows into an array
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = @mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
     return $rows;
@@ -53,7 +50,7 @@ function db_select($query) {
 //Remove special characters and quotes??
 function db_quote($value) {
     $connection = db_connect();
-    return "'" . mysqli_real_escape_string($connection,$value) . "'";
+    return "'" . @mysqli_real_escape_string($connection,$value) . "'";
 }
 
 //Send back error to be handled
