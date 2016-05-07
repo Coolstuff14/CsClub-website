@@ -1,8 +1,15 @@
 <!-- Navigation -->
 <?php include_once 'db/login.php'; ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+        <style>.alert{position: absolute;
+      top: 30px;
+      left: 20px;
+      right: 20px;
+      z-index: 10000;
+      }</style>
+        <div id="alert_placeholder"></div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>

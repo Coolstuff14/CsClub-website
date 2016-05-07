@@ -11,17 +11,17 @@
 
     <title>Computer Science Club</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="bootstrap/css/one-page-wonder.css" rel="stylesheet">
-
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/one-page-wonder.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bootstrap/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 </head>
 
 <body>
-
   <!--Header and nav bar-->
   <?php
   include('header-nav-public.php');
@@ -29,9 +29,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
         <hr class="featurette-divider">
-
         <!-- First Featurette -->
         <div class="featurette">
             <img class="featurette-image img-circle img-responsive pull-right" src="img/joinus.jpg" height="500px" width="500px">

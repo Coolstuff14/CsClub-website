@@ -6,8 +6,13 @@
   <?php include 'modules/head.php';?>
 
   <body class="layout-boxed hold-transition <?=$pageSkin?> sidebar-mini">
+    <style>.alert{position: absolute;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+  z-index: 10000;}</style>
+    <div id="alert_placeholder"></div>
     <div class="wrapper">
-
       <!--HEADER AND MAIN NAV-->
       <?php include 'modules/header-nav.php'; ?>
 
