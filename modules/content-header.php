@@ -1,4 +1,6 @@
-<!-- Content Header (Page header) -->
+<!-- Content Header (Page header)
+<div id="alert_placeholder"></div>-->
+
 <section class="content-header">
   <h1>
     Dashboard

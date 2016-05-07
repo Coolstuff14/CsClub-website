@@ -21,62 +21,50 @@
 
 
         <!-- Notifications Menu -->
-        <li class="dropdown notifications-menu">
-          <!-- Menu toggle button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o"></i>
-            <span class="label label-warning"><?=$notifCount?></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have <?=$notifCount?> notifications</li>
-            <li>
-              <!-- Inner Menu: contains the notifications -->
-              <ul class="menu">
-                <?php include 'modules/small-notify.php'; ?>
-              </ul>
-            </li>
-            <li class="footer"><a href="#">View all</a></li>
-          </ul>
-        </li>
+        <?php include 'modules/notify.php'; ?>
 
-        <!-- Tasks Menu -->
-        <li class="dropdown tasks-menu">
-          <!-- Menu Toggle Button -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-flag-o"></i>
-            <span class="label label-danger"><?=$todoCount?></span>
+<?php
+/*
+<li class="dropdown tasks-menu">
+
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-flag-o"></i>
+    <span class="label label-danger"><?=$todoCount?></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">You have <?=$todoCount?> tasks</li>
+    <li>
+
+      <ul class="menu">
+        <li>
+          <a href="#">
+            <i class="fa fa-thumb-tack text-green"></i>  Finish admin pages
           </a>
-          <ul class="dropdown-menu">
-            <li class="header">You have <?=$todoCount?> tasks</li>
-            <li>
-              <!-- Inner menu: contains the tasks -->
-              <ul class="menu">
-                <li><!-- Task item -->
-                  <a href="#">
-                    <i class="fa fa-thumb-tack text-green"></i>  Finish admin pages
-                  </a>
-                </li><!-- end task item -->
-              </ul>
-            </li>
-            <li class="footer">
-              <a href="#">View all tasks</a>
-            </li>
-          </ul>
         </li>
+      </ul>
+    </li>
+    <li class="footer">
+      <a href="#">View all tasks</a>
+    </li>
+  </ul>
+</li>
+*/
+?>
+
 
         <!-- User Account Menu -->
         <li class="dropdown user user-menu">
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- The user image in the navbar-->
-            <img src="img/user2-160x160.png" class="user-image" alt="User Image">
+            <img src="<?=$userPic?>" class="user-image" alt="User Image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
             <span class="hidden-xs"><?=$username?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
             <li class="user-header">
-              <img src="img/user2-160x160.png" class="img-circle" alt="User Image">
+              <img src="<?=$userPic?>" class="img-circle" alt="User Image">
               <p>
                 <?=$username?> - <?=$rank?>
                 <small>Member Since - <?=$memberDate?></small>
@@ -85,7 +73,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <a href="?page=profile" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
                 <a href="db/logout.php" class="btn btn-default btn-flat">Sign out</a>

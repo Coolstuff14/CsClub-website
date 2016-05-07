@@ -7,6 +7,8 @@
 <!-- AdminLTE App -->
 <script src="js/app.min.js"></script>
 
+<script type="text/javascript" src="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.js"></script>
+
 <script src="summernote/summernote.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
@@ -31,10 +33,14 @@ function destroyPost(){
 }
 
 //Stuff for tasks
-$('#example2').bootstrapTable({
-    onClickRow: function (row, $element) {
-      console.log(row, $element);
-
-    }
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("id");
+    });
 });
+
+//Stuff for tasks
+$(document).ready(function() {
+    $('#tasksTable').DataTable();
+} );
 </script>

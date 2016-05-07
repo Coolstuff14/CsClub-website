@@ -1,37 +1,69 @@
 <?php
-      if ($_SERVER['QUERY_STRING']==''){
+
+if (isset($_GET['page'])){
+      switch ($_GET['page']){
+        case "tasks":
+        //Page content to change to
+        $pageCont = 'modules/tasks-content.php';
+        //Button set to active
+        $taskActive="active";
+        //BreadCrumb page name
+        $bcrumbPage = "Tasks";
+        break;
+
+        case "dashboard":
         $pageCont = 'modules/dashboard.php';
         $dashboardActive="active";
         $bcrumbPage = "Dashboard";
+        break;
+
+        case "userAccounts":
+        $pageCont = 'modules/userAcc-cont.php';
+        $userActive="active";
+        $bcrumbPage = "User Accounts";
+        break;
+
+        case "newpost":
+        $pageCont = 'modules/newpost-cont.php';
+        $newsActive="active";
+        $bcrumbPage = "New Post";
+        break;
+
+        case "remove-post":
+        $pageCont = 'modules/remove-post.php';
+        $newsActive="active";
+        $bcrumbPage = "Remove Post";
+        break;
+
+        case "profile":
+        $pageCont = 'modules/profile.php';
+        $dashboardActive="active";
+        $bcrumbPage = "Profile";
+        break;
+
+        case "resources":
+        $pageCont = 'modules/resources.php';
+        $resourceActive="active";
+        $bcrumbPage = "Resources";
+        break;
+
+        case "notifications":
+          $pageCont = 'modules/allNotify.php';
+          $dashboardActive="active";
+          $bcrumbPage = "Notifications";
+          break;
+
+        case "":
+        $pageCont = 'modules/dashboard.php';
+        $dashboardActive="active";
+        $bcrumbPage = "Dashboard";
+        break;
       }
-      if (strstr($_SERVER['QUERY_STRING'], 'tasks') == TRUE){
-            //Page content to change to
-            $pageCont = 'modules/tasks-content.php';
-            //Button set to active
-            $taskActive="active";
-            //BreadCrumb page name
-            $bcrumbPage = "Tasks";
-       }
-       if (strstr($_SERVER['QUERY_STRING'], 'dashboard') == TRUE){
-             $pageCont = 'modules/dashboard.php';
-             $dashboardActive="active";
-             $bcrumbPage = "Dashboard";
-        }
-        if (strstr($_SERVER['QUERY_STRING'], 'userAccounts') == TRUE){
-              $pageCont = 'modules/userAcc-cont.php';
-              $userActive="active";
-              $bcrumbPage = "User Accounts";
-         }
-         if (strstr($_SERVER['QUERY_STRING'], 'newpost') == TRUE){
-               $pageCont = 'modules/newpost-cont.php';
-               $newsActive="active";
-               $bcrumbPage = "New Post";
-          }
-          if (strstr($_SERVER['QUERY_STRING'], 'remove-post') == TRUE){
-                $pageCont = 'modules/remove-post.php';
-                $newsActive="active";
-                $bcrumbPage = "Remove Post";
-           }
+}else{
+  $pageCont = 'modules/dashboard.php';
+  $dashboardActive="active";
+  $bcrumbPage = "Dashboard";
+}
 
 
 

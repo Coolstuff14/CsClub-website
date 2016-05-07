@@ -26,7 +26,7 @@ $rank = "Admin";
 //Member since date
 $memberDate = "January 1, 1970";
 //Notification amount
-$notifCount = "0";
+$notifyCount = "0";
 //Todo count
 $todoCount = "0";
 //Registered Users
@@ -35,4 +35,6 @@ $regUsers = "0";
 $uniqueV = "0";
 //Online Users
 $onlineNow = "0";
+//Default User image
+$userPic = "img/user2-160x160.png";
  ?>

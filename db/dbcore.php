@@ -59,4 +59,14 @@ function db_error() {
     return mysqli_error($connection);
 }
 
+//Remove single quotes around something
+function db_squote($var){
+  return $var = preg_replace('/(^[\"\']|[\"\']$)/', '', $var);
+}
+
+function alertMsg($msg, $type){
+  echo "<script type='text/javascript'>var alerttype='".$type."', message='".$msg."'</script>";
+  echo "<script type='text/javascript' src='../js/alerts.js'></script>";
+}
+
  ?>

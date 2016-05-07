@@ -13,7 +13,7 @@
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
         </div>
       </div><!-- ./col -->
 
@@ -27,7 +27,7 @@
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
         </div>
       </div><!-- ./col -->
 
@@ -41,7 +41,7 @@
         <div class="icon">
           <i class="ion ion-earth"></i>
         </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
       </div>
     </div><!-- ./col -->
   </div><!-- /.row -->
@@ -49,7 +49,7 @@
 
   <div class="row">
     <div class="col-lg-12 col-xs-12">
-    <?php include 'todo.php' ?>
+    <?php //include 'todo.php' ?>
   </div>
   </div><!--row-->
 

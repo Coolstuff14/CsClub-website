@@ -12,7 +12,11 @@ else{
       echo "$error";
       // Handle failure - log the error, notify administrator, etc.
     } else {
+
+    alertMsg('Posted Successfully!', 'alert-success');
     // We successfully inserted a row into the database
+    $newNotify = '<i class="fa fa-newspaper-o text-aqua"></i>New post in newsfeed by '.$username.'';
+    include 'add-notify.php';
     }
 }
  ?>

@@ -16,44 +16,52 @@
       // Connect to the database
       $connection = db_connect();
 
-      $rows = db_select("SELECT fName,password,memberID,eboard,role FROM MEMBER WHERE username='".$userN."' ");
+      $rows = db_select("SELECT fName,password,memberID,eboard,role,active FROM MEMBER WHERE username='".$userN."' ");
       if(($rows !== false)&&(count($rows) > 0)) {
-        if($rows[0]['password'] == $pass){
-					if ($rows[0]['eboard'] == '1'){
-						//Redirect to admin portal
-						$_SESSION['adminAuth'] = 'true';
-						$_SESSION['uId'] = $rows[0]['memberID'];
-						$_SESSION['name'] = $rows[0]['fName'];
-						$_SESSION['role'] = $rows[0]['role'];
+				if ($rows[0]['active'] == 1){
+        	if($rows[0]['password'] == $pass){
+						if ($rows[0]['eboard'] == '1'){
+							//Redirect to admin portal
+							$_SESSION['adminAuth'] = 'true';
+							$_SESSION['uId'] = $rows[0]['memberID'];
+							$_SESSION['name'] = $rows[0]['fName'];
+							$_SESSION['role'] = $rows[0]['role'];
 
-						// Once the sessions variables have been set, redirect them to the landing page / home page.
-						header('location: ahome.php');
-	          exit;
+							// Once the sessions variables have been set, redirect them to the landing page / home page.
+							header('location: ahome.php');
+		          exit;
 					}
 					else{
-						//Redirect registered user to home
-						// isAuth is important here because we will test this to make sure they can view other pages
-						// that are needing credentials.
-						$_SESSION['isAuth'] = 'true';
-						$_SESSION['uId'] = $rows[0]['memberID'];
-						$_SESSION['name'] = $rows[0]['fName'];
+							//Redirect registered user to home
+							// isAuth is important here because we will test this to make sure they can view other pages
+							// that are needing credentials.
+							$_SESSION['isAuth'] = 'true';
+							$_SESSION['uId'] = $rows[0]['memberID'];
+							$_SESSION['name'] = $rows[0]['fName'];
 
-						// Once the sessions variables have been set, redirect them to the landing page / home page.
-						header('location: signedin.php');
-	          exit;
+							// Once the sessions variables have been set, redirect them to the landing page / home page.
+							header('location: signedin.php');
+		          exit;
 					}
 
+					}else{
+						alertMsg('Invalid Password!', 'alert-danger');
+						//$error = "Password compare issue";
+					}
 				}
 				else {
-					$error = "Password compare issue";
+					alertMsg('Account Deactivated!', 'alert-danger');
+					//$error = "Account Deactivated!";
 				}
 			}
 			else {
-				$error = "Database query issue ";
+				alertMsg('Username Does not Exist!', 'alert-danger');
+				//$error = "Database query issue ";
 			}
 		}
 		else {
-			$error = "Username and password not grabbed.";
+			alertMsg('Please Enter Username and Password!', 'alert-danger');
+			//$error = "Username and password not grabbed.";
 		}
 	}
 ?>
